@@ -18,3 +18,12 @@ FROM employee e JOIN
     manager m ON 
     e.manager_id = m.id 
 WHERE e.salary > m.salary
+
+
+-- Simpler Solution
+
+SELECT e2.first_name, e2.salary
+FROM employee e1 JOIN 
+    employee e2 ON 
+    e1.id = e2.manager_id
+WHERE e2.salary > e1.salary

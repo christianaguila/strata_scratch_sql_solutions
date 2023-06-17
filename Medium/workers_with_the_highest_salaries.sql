@@ -4,8 +4,8 @@ Find the titles of workers that earn the highest salary. Output the highest-paid
  */
 
  
-SELECT TOP(2) worker_title
-FROM worker w JOIN
-    title t ON 
+SELECT t.worker_title
+FROM worker w JOIN 
+    title t ON
     w.worker_id = t.worker_ref_id
-ORDER BY w.salary DESC
+WHERE salary = (SELECT MAX(salary) FROM worker)
